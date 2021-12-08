@@ -1,0 +1,23 @@
+﻿@model Web.Models.ViewModel
+
+<div class="container">
+    <form action="/Service/EditService" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+        <div class="form-group">
+            <fieldset>
+                <input class="form-control" type="hidden" name="serviceid" value="@Model.Service.Id"><br>
+                <label>Name:</label>
+                <input class="form-control" type="text" name="name" placeholder="Name" value="@Model.Service.Name"><br>
+                <label>Description:</label>
+                <textarea  class="form-control" type="text" name="description">@Model.Service.Description</textarea><br>
+                <label>Price:</label>
+                <input class="form-control" type="number" name="price" value="@Model.Service.Price"><br>
+                <label>Comission:</label>
+                <input class="form-control" type="number" name="comission" value="@Model.Service.Comission"><br>
+            </fieldset>
+            <p>@Model.Message</p>
+            <br />
+            <button type="submit" class="btn btn-success">Confirm</button><br />
+            <a class="btn btn-secondary" asp-controller="Service" asp-action="ServiceManagement">Go Back</a>
+        </div>
+    </form>
+    </div>

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Domain.Models.OrderModel>
+
+@{
+    ViewData["Title"] = "OrdersManagement";
+}
+<div style="margin-top: 0.5%; margin-left:0.5%">
+    <h4>My Service Orders</h4>
+    <div>
+        <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+
+    </div>
+
+    <table class="table" style="background-color: #E7E5DC ">
+        <thead>
+            <tr>
+                <th>
+                    Customer Id
+                </th>
+                <th>
+                    Customer Name
+                </th>
+                <th>
+                    Customer PhoneNumber
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MakingDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdditionalInfo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreationDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.Name)
+                        @Html.DisplayFor(modelItem => item.Customer.Surname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MakingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdditionalInfo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "OrderDetails", "Order", new { orderid = item.Id })
+                        @Html.ActionLink("Edit", "EditOrder", "Order", new { orderid = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

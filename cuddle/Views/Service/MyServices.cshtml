@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Domain.Models.EmployeesAndServicesModel>
+
+@{
+    ViewData["Title"] = "MyServices";
+}
+<div class="container" style="margin-top:0.5%">
+    <h4>My Services:</h4>
+    <p>
+        <a class="btn btn btn-success" asp-controller="Service" asp-action="CreateEmployeeService">Create New</a>
+        <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+    </p>
+    <table class="table" style="background-color: #E7E5DC ">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Service.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Service.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteEmployeeService", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

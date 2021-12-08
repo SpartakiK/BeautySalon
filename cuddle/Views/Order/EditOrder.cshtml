@@ -1,0 +1,25 @@
+﻿@model Web.Models.ViewModel
+
+
+
+
+
+<div class="container">
+    <form action="/Order/EditOrder" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+        <div class="form-group">
+            <fieldset>
+                <input class="form-control" type="hidden" name="orderid" value="@Model.Order.Id"><br>
+                <textarea class="form-control" type="text" name="additionalinfo">@Model.Order.AdditionalInfo</textarea><br>
+                <label>Stage:</label>
+                <select name="stage">
+                    <option value="Booked">Booked</option>
+                    <option value="InProgress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Canceled">Canceled</option>
+                </select><br />
+                <button type="submit" class="btn btn-success">Confirm</button>
+                <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+            </fieldset>
+        </div>
+    </form>
+</div>

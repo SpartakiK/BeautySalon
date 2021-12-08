@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Domain.Models.OrderModel>
+
+
+<div class="container">
+    <h4>My Orders</h4>
+    <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+    <table class="table" style="background-color: #E7E5DC ">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MakingDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AdditionalInfo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreationDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MakingDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AdditionalInfo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "MyOrderDetails", "Order", new { orderid = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

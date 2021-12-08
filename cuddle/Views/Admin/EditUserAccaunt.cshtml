@@ -1,0 +1,32 @@
+﻿@model Web.Models.ViewModel
+
+
+
+
+<div class="container">
+    <form action="/User/EditUserAccaunt" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+        <div class="form-group">
+            <fieldset>
+                <input class="form-control" type="hidden" name="Id" value="@Model.User.Id"><br>
+                <input class="form-control" type="hidden" name="Phonenumber" value="@Model.User.PhoneNumber"><br>
+                <label>Name:</label>
+                <input class="form-control" type="text" name="Name" placeholder="Name" value="@Model.User.Name"><br>
+
+                <input class="form-control" type="hidden" name="Password" value="@Model.User.Password"><br>
+                <label>Surname:</label>
+                <input class="form-control" type="text" name="Surname" placeholder="Surname" value="@Model.User.Surname"><br>
+            </fieldset>
+            <label>PermissionStatus:</label>
+            <select name="Status">
+                <option value="Admin">Admin</option>
+                <option value="Employee">Employee</option>
+                <option value="Customer" selected>Customer</option>
+                <option value="Blocked">Blocked</option>
+            </select><br />
+            <br />
+            <button type="submit" class="btn btn-success">Confirm</button>
+            <a class="btn btn-secondary" @Html.ActionLink("Go Back", "ShowUserInfo", "User", new { phonenumber = Model.User.PhoneNumber })
+        <p>@Model?.Message</p>
+        </div>
+    </form>
+    </div>

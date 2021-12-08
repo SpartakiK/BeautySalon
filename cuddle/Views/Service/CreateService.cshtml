@@ -1,0 +1,25 @@
+﻿@model string
+
+
+
+
+<div class="container">
+
+    <form action="/Service/CreateService" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+        <div class="form-group">
+
+            <label>Name:</label>
+            <input class="form-control" type="text" name="name"><br>
+            <label>Description:</label>
+            <textarea class="form-control" type="text" name="description"></textarea><br>
+            <label>Price:</label>
+            <input class="form-control" type="text" name="price"><br>
+            <label>Comission:</label>
+            <input class="form-control" type="text" name="comission"><br>
+            <br />
+            <button type="submit" class="btn btn-success">Confirm</button>
+            <a class="btn btn-secondary" asp-controller="Service" asp-action="ServiceManagement">Go Back</a>
+        </div>
+        <p>@Model</p>
+    </form>
+    </div>

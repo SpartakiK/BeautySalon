@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Domain.Models.OrderDetailModel>
+
+<div class="container">
+    <h4>My Order Details:</h4>
+    <h1>OrderDetails</h1>
+    <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+    <table class="table" style="background-color: #E7E5DC ">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Service.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreationDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Service.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

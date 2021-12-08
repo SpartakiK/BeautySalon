@@ -1,0 +1,41 @@
+﻿@model Web.Models.ViewModel
+
+@{
+    ViewData["Title"] = "Services";
+}
+<div class="container">
+    <h4>Our Services:</h4>
+    <div style="margin-top:0.5%">
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Go Back</a>
+        <br />
+        <br />
+        @foreach (var item in Model.Services)
+        {
+            <div class="col-lg-3 col-sm-6 mb-4">
+
+                <dl class="shadow rounded-xs ">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => item.Name)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => item.Name)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => item.Description)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => item.Description)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => item.Price)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => item.Price)
+                    </dd>
+                </dl>
+            </div>
+        }
+    </div>
+    <div>
+    </div>
+</div>

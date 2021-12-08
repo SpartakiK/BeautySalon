@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Domain.Models.ServiceModel>
+    <div class="container">
+        <form action="/Service/CreateEmployeeService" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+            <select name="serviceid">
+
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Id">
+                        @item.Name
+                    </option>
+                }
+            </select>
+            <br />
+            <div style="margin-top:5%">
+                <button type="submit" class="btn btn-success">Confirm</button>
+                <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+            </div>
+        </form>
+        </div>

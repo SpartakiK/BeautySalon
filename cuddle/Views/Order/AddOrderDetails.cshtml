@@ -1,0 +1,29 @@
+﻿@model Web.Models.ViewModel
+
+
+
+
+<div class="container">
+<form action="/Order/AddOrderDetails" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+    <div class="form-group">
+        <fieldset>
+            <input class="form-control" type="hidden" name="orderid" value="@Model.OrderId"><br>
+
+            <label>ServiceId:</label>
+            <select name="serviceid">
+
+                @foreach (var item in Model.EmployeesAndServices)
+                {
+                    <option value="@item.Service.Id">
+                        @item.Service.Name
+                        @item.Service.Price
+                    </option>
+                }
+            </select>
+        </fieldset>
+        <p>@ViewBag.ErrorText</p>
+        <button type="submit" class="btn btn-success">Confirm</button>
+        <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+    </div>
+</form>
+</div>

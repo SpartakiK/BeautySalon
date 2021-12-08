@@ -1,0 +1,32 @@
+﻿@model Domain.Models.UserModel
+    <div class="container">
+        <div>
+            <h4>@Model.Status</h4>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Surname)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Surname)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+
+            </dl>
+        </div>
+        <div>
+
+            <a class="btn btn-secondary" asp-action="EditProfile">Edit Profile</a>
+            <a class="btn btn-secondary" asp-controller="@Model.Status" asp-action="Cabinet">Go Back</a>
+        </div>
+        </div>

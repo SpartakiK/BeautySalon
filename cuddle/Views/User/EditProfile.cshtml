@@ -1,0 +1,23 @@
+﻿@model Domain.Models.UserModel
+
+<div class="container">
+    <body id="header" class="header">
+        <form action="/User/EditProfile" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+            <div class="form-group">
+                <fieldset>
+                    <label>Name:</label>
+                    <input class="form-control" type="text" name="name" value="@Model.Name"><br>
+
+                    <label>Surname:</label>
+                    <input class="form-control" type="text" name="surname" value="@Model.Surname"><br>
+
+                    <label>PhoneNumber:</label>
+                    <input class="form-control" type="text" name="phonenumber" value="@Model.PhoneNumber"><br>
+
+                    <button type="submit" class="btn btn-success">Confirm</button>
+                    <a class="btn btn-secondary" href="javascript:history.back()">Go Back</a>
+                </fieldset>
+            </div>
+        </form>
+    </body>
+    </div>

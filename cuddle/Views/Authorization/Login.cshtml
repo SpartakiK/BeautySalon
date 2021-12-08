@@ -1,0 +1,25 @@
+﻿@model Web.Models.ViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body id="header" class="header">
+    <div class="container">
+        <form action="/Authorization/Login" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+            <div class="form-group">
+
+                <input class="form-control" type="text" id="PhoneNumber" name="PhoneNumber" placeholder="PhoneNumber"><br>
+
+                <input class="form-control" type="password" id="Password" name="Password" placeholder="Password"><br>
+
+
+                <button type="submit" class="btn btn-success">Confirm</button>
+
+                <button class="btn btn-secondary" asp-area="" asp-controller="Authorization" asp-action="Registration">Registration</button>
+            </div>
+            <p>@Model?.Message</p>
+        </form>
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿@model Web.Models.ViewModel
+
+
+
+
+
+<div class="container">
+    <form action="/Order/CreateOrder" method="post" style="margin-top: 10%; margin-left: 40%; width: 20%">
+        <div class="form-group">
+            <label>Client PhoneNumber:</label>
+            <input class="form-control" type="text" name="customerphonenumber"><br>
+            <label>Employee:</label>
+            <select name="employeeid">
+
+                @foreach (var item in Model.Employees)
+                {
+                    <option value="@item.Id">
+                        @item.User.Name
+                        @item.User.Surname
+                    </option>
+                }
+            </select>
+            <label>Making Date:</label>
+            <input class="form-control" type="datetime-local" name="makingdate"> <br>
+            <label>AdditionalInfo:</label>
+            <textarea class="form-control" type="text" name="additionalinfo"></textarea><br>
+            <p>@Model?.Message</p>
+            <button type="submit" class="btn btn-success">Confirm</button>
+            <a class="btn btn-secondary" asp-controller="Order" asp-action="OrdersManagement" style="margin-top:0.4%">Go Back</a>
+        </div>
+    </form>
+      
+    <div style="margin-left: 40%; width: 20%">
+        <form action="/Order/CreateOrder" method="get">
+            <select name="serviceid">
+
+                @foreach (var item in Model.Services)
+                {
+                    <option value="@item.Id">
+                        @item.Name
+                    </option>
+                }
+            </select>
+            <button type="submit" class="btn btn-success">Sumbit</button>
+        </form>
+        @if (Model.EmployeesAndServices != null)
+        {
+            <table class="table" style="background-color: #E7E5DC ">
+
+                <tbody>
+                    @foreach (var item in Model?.EmployeesAndServices)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Employee.User.Name)
+                                @Html.DisplayFor(modelItem => item.Employee.User.Surname)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+    </div>
